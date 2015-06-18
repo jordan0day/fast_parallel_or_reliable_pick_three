@@ -61,6 +61,23 @@
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
+				  <h2>Comfy syntax</h2>
+				  <pre><code class="elixir" data-trim>
+# A naive version of the Sieve of Eratosthenes
+defmodule Eratosthenes do
+  def sieve([]) do
+    []
+  end
+
+  def sieve([current | rest]) do
+    filtered = Enum.filter(rest, fn num -> rem(num, current) != 0 end)
+    [current] ++ sieve(filtered)
+  end
+end
+				  </code></pre>
+				</section>
+
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
 				  <h2>The future is functional</h2>
 				</section>
 
