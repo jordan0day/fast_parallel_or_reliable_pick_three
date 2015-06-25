@@ -56,17 +56,22 @@
 						Elixir is a functional, dynamically-typed programming language <em>that is totally awesome</em>.
 					</p>
 					<p class="fragment">"Functional? What am I, a scientist?"<br />
-					<img src="images/sciencemachine_lg.gif" />
+					<img src="images/sciencemachine_lg.gif" width="400px" />
 					</p>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
-				  <h2>Comfy syntax</h2>
-				  <pre><code class="elixir" data-trim>
+				  <section>
+					  <h2>Ruby-like syntax</h2>
+					  <pre><code class="elixir" data-trim>
 # A naive version of the Sieve of Eratosthenes
 defmodule Eratosthenes do
   def sieve([]) do
     []
+  end
+
+  def sieve([current | rest]) when current < 2 do
+    sieve(rest)
   end
 
   def sieve([current | rest]) do
@@ -74,12 +79,185 @@ defmodule Eratosthenes do
     [current] ++ sieve(filtered)
   end
 end
-				  </code></pre>
+					  </code></pre>
+					</section>
+					<section>
+					  <h3>The Sieve in action</h3>
+					  <p>Live demo time!</p>
+					  <small>That never goes wrong, does it?</small>
+					</section>
+					<section>
+					  <h3>The Sieve in action</h3>
+					  <h4>Looks like the live demo went wrong, eh?</h4>
+					  <p>
+					    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+					    <pre><code>
+1 is less than 2, so it can't be prime.
+Returning sieve([2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+2 is prime. Filtered out multiples of 2.
+Returning [2] ++ sieve([3, 5, 7, 9])
+
+3 is prime. Filtered out multiples of 3.
+Returning [3] ++ sieve([5, 7])
+
+5 is prime. Filtered out multiples of 5.
+Returning [5] ++ sieve([7])
+
+7 is prime. Filtered out multiples of 7.
+Returning [7] ++ sieve([])
+
+Got an empty list.
+Returning []
+
+[2, 3, 5, 7]
+					    </code></pre>
+					  </p>
+					</section>
+				</section>
+
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom right">
+				  <h2>Like, Ruby?</h2>
+				  <p class="fragment">
+				    <img src="images/i_know_that_feel_bro.jpg" />
+				  </p>
+				</section>
+
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom left">
+				  <section>
+				    <h2>Erlang</h2>
+					  <h4>What is it?</h4>
+					  <ul>
+					    <li>A language</li>
+					    <li>A virtual machine</li>
+					    <li>Highly (and easily!) concurrent</li>
+					    <li>Reliable</li>
+					  </ul>
+					</section>
+				  <section>
+					  <p>
+					    <img src="images/erlang_hipster.jpg" height="550px" />
+					  </p>
+					</section>
+					<section>
+					  <img src="images/erlang_equals_money.png" />
+					</section>
+				</section>
+
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top left">
+				  <h2>I thought this was an Elixir talk?</h2>
+				  <p class="fragment">
+				    <img src="images/cupcake.png" />
+				  </p>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
-				  <h2>The future is functional</h2>
+				  <section>
+					  <h2>Why Elixir</h2>
+					  <h4>If Elixir is so similar to Erlang, why invent a new language?</h4>
+				  </section>
+				  <section>
+				    <h3>Nicer syntax</h3>
+		        <img src="images/ugly_llama.jpg" height="400px" />
+		        <br />
+		        <h4>Erlang Syntax</h4>
+		      </section>
+		      <section>
+		        <h3>Nicer syntax</h3>
+		        <img src="images/mike_alpacas_1.jpg" height="400px" />
+		        <br />
+		        <h4>Elixir Syntax</h4>
+				  </section>
+				  <section>
+				    <h3>Macro-based metaprogramming</h3>
+				    <ul>
+					    <li>Most of Elixir is implemented via macros</li>
+					    <li>Great for making your own DSLs</li>
+					    <li>Elixir is homoiconic (lisp weenie alert!)
+				    </ul>
+				  </section>
+				  <section>
+				    <h3>Awesome tooling</h3>
+				    <ul>
+				      <li>'mix' is a tool like Leiningen, Rake, Bundler in one</li>
+				      <li>IEx is Elixir's REPL</li>
+				      <li>Documentation support is baked-in. Generate module/function documentation with <strong>@moduledoc</strong> and <strong>@doc</strong> attributes, viewable in browser and in IEx.</li>
+				    </ul>
+				  </section>
+				  <section>
+				  	<h3>A thoughtful standard library</h3>
+				  	<p>
+				  	Commonly-used types like Tasks, Streams, and Enumerables are built into Elixir, rather than bolted-on through other libraries.
+				  	</p>
+				  	<p>
+				  	Since Elixir's standard library was <em>designed</em>, rather than <em>grown</em>, it's very consistent.
+				  	</p>
+				  </section>
 				</section>
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom right">
+				  <h2>Fast</h2>
+				  <img src="images/phoenix_tweet.png" />
+				</section>
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom left">
+				  <section>
+					  <h2>Parallel</h2>
+					  <p>Erlang was built for concurrency, by running on the Erlang VM, Elixir gets concurrency (<em>and parallelism</em>) for free.</p>
+					  <p>
+						  <img src="images/mike_alpacas_2.jpg" height="350px" />
+					  </p>
+					</section>
+					<section>
+					  <h3>Trust the Process</h3>
+					  <p>The basic unit of concurrency in Elixir is the <strong>Process</strong></p>
+					  <ul>
+					    <li>Not an OS Process</li>
+					    <li>Lightweight - initially consumes ~300 words of memory and grows as needed.</li>
+					    <li>Erlang VM creates one process <em>scheduler</em> per core, load balances processes among schedulers.</li>
+					    <li>Processes are scheduled pre-emptively, not cooperatively.</li>
+					  </ul>
+					</section>
+				</section>
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top left">
+				  <section>
+				    <img src="images/concurrency_barbie.jpg" height="500px"/>
+					</section>
+					<section>
+						<img src="images/captain_hindsight_immutability.jpg" height="500px" />
+					</section>
+
+				</section>
+				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
+				  <section>
+					  <h2>Reliable</h2>
+					  <p>Processes are organized by <em>supervisors</em>, which can automatically restart a process that has crashed.</p>
+					</section>
+					<section>
+						<p>
+						  <q cite="http://www.hpl.hp.com/techreports/tandem/TR-85.7.pdf">
+						  &ldquo;In the measured period, one out of 132 software faults was a Bohrbug, the remainder were Heisenbugs.&rdquo;
+						  </q>
+						</p>
+						<p>
+							<small>"Why Do Computers Stop and What Can Be Done About It?" (Dr. Jim Gray, 1985)</small>
+						</p>
+					</section>
+					<section>
+						<img src="images/bsod.jpg" />
+					</section>
+					<section>
+					  <h3>Let it crash</h3>
+					  <h4>(Maybe go with "Let it fail" if it's for an airplane or something)</h4>
+					  <p>
+					    <q cite="http://www.methodsandtools.com/archive/erlang.php">
+					    	&ldquo;...rewriting C++ production code (in Erlang) resulted in four to twenty fold code reduction... it was obvious that supervisors played a significant role. The defensive programming in Erlang consisted of one per cent of the total code base versus an average of 27 per cent for the C++ applications.&rdquo;
+					    </q>
+					  </p>
+					    <small>"Using Erlang for an Open Telecommunications Platform" (Francesco Cesarini, 2012)</small>
+					  <p>
+					  </p>
+					</section>
+				</section>
+
 
 				<!-- Example of nested vertical slides -->
 				<section>
