@@ -43,11 +43,22 @@
 				<section>
 					<h1>Fast, Parallel, or Reliable</h1>
 					<h3>Pick three</h3>
-					<!--
-					<p>
-						<small>A tour of Elixir</small>
-					</p>
-					-->
+					<aside class="notes">
+					  <ul>
+						  <li>Hi, and thanks for coming to hear about my new favorite language, Elixir.</li>
+						  <li>SE at Lexmark, formerly Perceptive.</li>
+						  <li>Languages used in past.</li>
+						  <li>Very excited about Elixir. Team going farther, faster than ever.</li>
+						  <li>Never heard of Elixir before? Only here because you saw it mentioned on hacker news once? Wondering what it is?</li>
+						</ul>
+						</aside>
+				</section>
+
+				<section>
+				  <img src="images/sponsors.png" />
+				  <aside class="notes">
+				  Well, you're going to have to wait a little longer to find out, because first I need to thank the conference sponsors, without their support we probably wouldn't be here today.
+				  </aside>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top left">
@@ -58,6 +69,16 @@
 					<p class="fragment">"Functional? What am I, a scientist?"<br />
 					<img src="images/sciencemachine_lg.gif" width="400px" />
 					</p>
+					<aside class="notes">
+					  <ul>
+					    <li>We group langs imperative/OO/functional/static/dynamic/strong/weak</li>
+					    <li>Elixir is functional, dynamic-but-strongly typed. Compiler won't complain, runtime will.</li>
+					    <li>You <em>can</em> write functional java/c#/ruby/even c++, but Elixir is first "real" functional lang I've used day in, day out. And it's <strong>awesome</strong>.
+					    <li>(FRAGMENT)</li>
+					    <li>Don't worry, you don't need to know a monad from an endofunctor to use Elixir.</li>
+					    <li>Partly, that's because it has a comfortable, Ruby-like syntax</li>
+					  </ul>
+					</aside>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
@@ -66,10 +87,13 @@
 					  <pre><code class="elixir" data-trim>
 # A naive version of the Sieve of Eratosthenes
 defmodule Eratosthenes do
+  # [] is an empty list
   def sieve([]) do
     []
   end
 
+  # [current | rest] = [1, 2, 3, 4]
+  # current = 1, rest = [2, 3, 4]
   def sieve([current | rest]) when current < 2 do
     sieve(rest)
   end
@@ -80,6 +104,17 @@ defmodule Eratosthenes do
   end
 end
 					  </code></pre>
+					  <aside class="notes">
+					    <ul>
+					      <li>Elixir origin - Jose researching thread-safe Rails</li>
+					      <li>Research + ruby knowledge leads to Elixir.</li>
+					      <li>Naive functional, recursive impl of Sieve</li>
+					      <li>Sieve is an ancient algorithm for finding primes - explain crossing out</li>
+					      <li>Modules are how you organize functions in Elixir - also data types</li>
+					      <li>Both modules and functions are delineated by do...end blocks</li>
+					      <li>Looks like three different functions, actually three different function <strong>clauses</strong></li>
+					    </ul>
+					  </aside>
 					</section>
 					<section>
 					  <h3>The Sieve in action</h3>
@@ -121,6 +156,15 @@ Returning []
 				  <p class="fragment">
 				    <img src="images/i_know_that_feel_bro.jpg" />
 				  </p>
+				  <aside class="notes">
+				    <ul>
+				      <li>Looks like Ruby, but doesn't "feel" like Ruby.</li>
+				      <li>No classes, used recursion, no built-in pattern matching in Ruby, destructuring is different</li>
+				      <li>It "feels" like Clojure</li>
+				      <li>Macros and protocols are definitely inspired by Clojure's</li>
+				      <li>Elixir is most inspired by Erlang</li>
+				    </ul>
+				  </aside>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom left">
@@ -133,10 +177,22 @@ Returning []
 					    <li>Highly (and easily!) concurrent</li>
 					    <li>Reliable</li>
 					  </ul>
+					  <aside class="notes">
+					    <ul>
+					    	<li>Functional language from 1980's telecom giant Ericsson</li>
+					    	<li>Needed to build systems that were distributed, fault-tolerant, capable of live updates.</li>
+					    	<li>Created a new functional, dynamic-but-strongly typed langage(sounds familiar!)</li>
+					    	<li>Runs on it's own VM, like Java on the JVM</li>
+					    	<li>After toiling in relative obscurity for a decade or so, open sourced the language in the late 90's and now Erlang developers...</li>
+					    	<li>Toil in relative obscurity. But <strong>LESS</strong> obscurity!</li>
+					    	<li>Because Erlang was built for distributed, reliable platforms, is popular choice for projects like Riak, RabbitMQ, Chef</li>
+					    	<li>Also WhatsApp, sold to Facebook for $19 billion</li>
+					    </ul>
+					  </aside>
 					</section>
 				  <section>
 					  <p>
-					    <img src="images/erlang_hipster.jpg" height="550px" />
+					    <img src="images/erlang_hipster.jpg" height="600px" />
 					  </p>
 					</section>
 					<section>
@@ -149,12 +205,29 @@ Returning []
 				  <p class="fragment">
 				    <img src="images/cupcake.png" />
 				  </p>
+				  <aside class="notes">
+				    <ul>
+				      <li>Runs on the Erlang VM, like Clojure on the JVM</li>
+				      <li>Like Clojure with Java jars, Elixir can use Erlang libs, and vice versa.</li>
+				      <li>Elixir is more closely-related to Erlang than Clojure to Java</li>
+				      <li>Elixir is the frosting on an Erlang cupcake. Without the frosting, it's just a chocolate muffin</li>
+				      <li>Everyone likes cupcakes more than muffins</li>
+				    </ul>
+				  </aside>
 				</section>
 
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top right">
 				  <section>
 					  <h2>Why Elixir</h2>
 					  <h4>If Elixir is so similar to Erlang, why invent a new language?</h4>
+					  <aside class="notes">
+					    <ul>
+					      <li>So Elixir runs on the EVM and "feels" like Erlang.</li>
+					      <li>Why a new language?</li>
+					      <li>First off - nicer syntax</li>
+					      <li>Erlang's syntax is Prolog based, so it's a little... weird.</li>
+					    </ul>
+					  </aside>
 				  </section>
 				  <section>
 				    <h3>Nicer syntax</h3>
@@ -180,9 +253,20 @@ Returning []
 				    <h3>Awesome tooling</h3>
 				    <ul>
 				      <li>'mix' is a tool like Leiningen, Rake, Bundler in one</li>
+				      <li>ExUnit built-in testing framework</li>
+				      <li>Hex package manager, like RubyGems/Maven/NuGet</li>
 				      <li>IEx is Elixir's REPL</li>
 				      <li>Documentation support is baked-in. Generate module/function documentation with <strong>@moduledoc</strong> and <strong>@doc</strong> attributes, viewable in browser and in IEx.</li>
 				    </ul>
+				    <aside class="notes">
+				      <ul>
+				        <li>Huge advantage over not just Erlang but <em>most</em> languages</li>
+				        <li>Tools are available right out-of-the-box. Good third-party tools get assimilated.</li>
+				        <li>Mix does builds, tests, pulls dependencies, runs other tasks.</li>
+				        <li>Fact that tools are a priority means being an Elixir beginner is way more pleasant.</li>
+				        <li>Windows, OS X, Linux are all first-class citizens.</li>
+				      </ul>
+				    </aside>
 				  </section>
 				  <section>
 				  	<h3>A thoughtful standard library</h3>
@@ -192,11 +276,39 @@ Returning []
 				  	<p>
 				  	Since Elixir's standard library was <em>designed</em>, rather than <em>grown</em>, it's very consistent.
 				  	</p>
+				  	<aside class="notes">
+				  	  <ul>
+				  	    <li>"Bigger" language than Erlang - could be bad, but it's not.</li>
+				  	    <li>After a couple of decades of Erlang use, better idea of what developers wish was built-in.</li>
+				  	    <li>Task example - Like a promise. Wraps "async_call" and "yield" functions found in Erlang's rpc module, but uses "async/await" semantics from F#.</li>
+				  	    <li>Consistent means all Enum module functions take an Enumerable as the first argument. Likewise with Strings, etc.</li>
+				  	  </ul>
+				  	</aside>
 				  </section>
 				</section>
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom right">
-				  <h2>Fast</h2>
-				  <img src="images/phoenix_tweet.png" />
+				  <section>
+					  <h2>Fast</h2>
+					  <img src="images/phoenix_tweet.png" />
+					  <aside class="notes">
+					    <ul>
+					      <li>Fast is obviously a subjective term</li>
+					      <li>Not optimized for number crunching, image processing, etc.</li>
+					      <li>That said, this tweet's sentiment is very common</li>
+					    </ul>
+					  </aside>
+					</section>
+					<section>
+					  <img src="images/phoenix_tweet_2.png" />
+					  <aside class="notes">
+					    <ul>
+					      <li>Phoenix is popular web framework for Elixir</li>
+					      <li>In my own usage, often see response times in the few-hundred microsecond range</li>
+					      <li>Optimized for fast <em>coordination</em> of work, like serving lots of clients.</li>
+					      <li>One reason it's easy to build fast services in Elixir is that it's easy to take advantage of all your CPU's...</li>
+					    </ul>
+					  </aside>
+					</section>
 				</section>
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="bottom left">
 				  <section>
@@ -205,6 +317,16 @@ Returning []
 					  <p>
 						  <img src="images/mike_alpacas_2.jpg" height="350px" />
 					  </p>
+					  <aside class="notes">
+					    <ul>
+					      <li>Erlang was originally designed for telephone switching equipment handling lots of simultaneous phone calls</li>
+					      <li>Needed a system that could "multi-task" easily and reliably.</li>
+					      <li>But it was the 80's so Intel wasn't giving out free bonus CPU cores with every processor like today</li>
+					      <li>Erlang was built for concurrency, not parallelization</li>
+					      <li>But because the concurrency system was smartly-design, now we get parallelism basically for free.</li>
+					      <li>STOP AND DISCUSS DIFFERENCES BETWEEN CONCURRENT AND PARALLEL</li>
+					    </ul>
+					  </aside>
 					</section>
 					<section>
 					  <h3>Trust the Process</h3>
@@ -215,14 +337,43 @@ Returning []
 					    <li>Erlang VM creates one process <em>scheduler</em> per core, load balances processes among schedulers.</li>
 					    <li>Processes are scheduled pre-emptively, not cooperatively.</li>
 					  </ul>
+					  <aside class="notes">
+					    <ul>
+					      <li>Multi-processing in Elixir is achieved, appropriately enough, with multiple processes</li>
+					      <li>Elixir processes are not OS processes, lighter than even threads</li>
+					      <li>More akin to JVM's "green threads"</li>
+					      <li>Erlang VM creates one scheduler per core, balances processes between schedulers</li>
+					      <li>Application should work equally well on a single-core or many-core machine</li>
+					      <li>Scheduled pre-emptively, misbehaving processes won't hog CPU or hang the system</li>
+					      <li>Contrasted to cooperative scheduling in Node.js or Go.</li>
+					    </ul>
+					  </aside>
 					</section>
 				</section>
 				<section data-background="images/elixir_logo.png" data-background-size="63px" data-background-position="top left">
 				  <section>
 				    <img src="images/concurrency_barbie.jpg" height="500px"/>
+				    <aside class="notes">
+				      <ul>
+				        <li>Concurrent programming is hard -- I totally understand.</li>
+				        <li>I've written multi-threaded programs in other languages -- always filled with peril</li>
+				        <li>Race conditions, deadlocks are always hiding behind the next corner, waiting for a silly mistake</li>
+				        <li>Debugging those mistakes is painful</li>
+				        <li>But what's the typical source of most of those bugs?</li>
+				      </ul>
+				    </aside>
 					</section>
 					<section>
 						<img src="images/captain_hindsight_immutability.jpg" height="500px" />
+						<aside class="notes">
+						  <ul>
+						    <li>Shared, mutable state is behind a lot of problems in concurrent programming</li>
+						    <li>Elixir is immutable and doesn't allow sharing of state</li>
+						    <li>Elixir processes are actor-model based - no shared state, data is "shared" via message passing</li>
+						    <li>Messages are sent between processes with <strong>copies</strong> of the data, not pointers or references</li>
+						    <li>Through use of efficient functional data structures and smart VM optimizations, copying data isn't actually slow.</li>
+						  </ul>
+						</aside>
 					</section>
 
 				</section>
@@ -230,6 +381,12 @@ Returning []
 				  <section>
 					  <h2>Reliable</h2>
 					  <p>Processes are organized by <em>supervisors</em>, which can automatically restart a process that has crashed.</p>
+					  <aside class="notes">
+					    <ul>
+					      <li>Supervisors are processes which manage other processes</li>
+					      <li>Can start processes, and more importantly, <em>restart</em> processes that have crashed.</li>
+					    </ul>
+					  </aside>
 					</section>
 					<section>
 						<p>
@@ -240,9 +397,28 @@ Returning []
 						<p>
 							<small>"Why Do Computers Stop and What Can Be Done About It?" (Dr. Jim Gray, 1985)</small>
 						</p>
+						<aside class="notes">
+						  <ul>
+						    <li>Excerpt from Jim Gray's 1985 Tandem Computers report</li>
+						    <li>Origin of the term heisenbug - bug that goes away when you look for it, really hard to reproduce</li>
+						    <li>Performed an experiment analyzing error logs, found 131 of 132 bugs were transient</li>
+						    <li>That is, they went away if the system was restarted</li>
+						    <li>Kind of makes sense -- repeatable errors tend to get caught by unit tests, QA, etc.</li>
+						    <li>Only the really-hard-to-debug, "once in a blue moon" bugs should make it out the door</li>
+						  </ul>
+						</aside>
 					</section>
 					<section>
 						<img src="images/bsod.jpg" />
+						<aside class="notes">
+						  <ul>
+						    <li>How do we usually deal with these errors? We restart the application or the system</li>
+						    <li>A system that automatically restarts our failed processes is <strong>exciting</strong>.</li>
+						    <li>If most bugs really are transient, this should eliminate most hard-to-reproduce error reports</li>
+						    <li>How often do our exception handlers actually try to fix the problem and keep the program running?</li>
+						    <li>Usually we just write "oh crap" to the error log and either re-raise (crash) or cross our fingers and swallow the exception.
+						  </ul>
+						</aside>
 					</section>
 					<section>
 					  <h3>Let it crash</h3>
@@ -255,6 +431,15 @@ Returning []
 					    <small>"Using Erlang for an Open Telecommunications Platform" (Francesco Cesarini, 2012)</small>
 					  <p>
 					  </p>
+					  <aside class="notes">
+					    <ul>
+					      <li>STOP - LET THEM READ THE SLIDE</li>
+					      <li>How much of our code is dedicated to exception handling, null ref checks, etc.?</li>
+					      <li>How much more work could we get done if we weren't writing that boilerplate?</li>
+					      <li>Handling exceptions isn't solving a business problem</li>
+					      <li>Let it crash, and have the supervisor deal with the problem for you</li>
+					    </ul>
+					  </aside>
 					</section>
 				</section>
 
